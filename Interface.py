@@ -50,7 +50,7 @@ class ImageButton:
 
 
     # метод отображения кнопки
-    # НЕ ТРОГАТЬ, ОНО РАБОТАЕТ!!!!
+        
     def draw(self, screen):
         if self.is_active:              # Если на кнопку навелся пользователь, то она увеличивается  
 
@@ -78,12 +78,13 @@ class ImageButton:
             # Также, когда пользователь навелся на кнопку, то текст в ней увеличивается в размерах
             
             if current_image == self.hover_image:
-                                                    # Переменная self.text_height служит для того, чтобы
+                                                
                 Font = pygame.font.Font(None, 36)
                 text_surface = Font.render(self.text, True, (255, 255, 255))
 
                 text_rect.y -= 7
-                text_rect.x -= 4
+                text_rect.x -= 7
+
             else:
                                                 # Размер текста, если на кнопку не наводится пользователь
 
@@ -91,7 +92,7 @@ class ImageButton:
                 text_surface = Font.render(self.text, True, (255, 255, 255))
 
                 text_rect.y -= 20
-                text_rect.x -= 1
+                text_rect.x += 1
 
             screen.blit(text_surface, text_rect)
 
@@ -101,7 +102,6 @@ class ImageButton:
         self.is_hovered =  self.is_active and self.rect.collidepoint(mouse_pos)
 
     # обработка событий ( нажатие мыши )
-    # НЕ ТРОГАТЬ, ОНО РАБОТАЕТ!!!!
         
     def handle_event(self, event):
         if self.is_active:
