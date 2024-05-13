@@ -17,7 +17,6 @@ class ImageButton:
         
 
     # импорт кнопки и её отображение
-    # НЕ ТРОГАТЬ, ОНО РАБОТАЕТ!!!!
         
         self.image= pygame.image.load(image_path)
         self.image = pygame.transform.scale(self.image, (width, height))
@@ -52,12 +51,13 @@ class ImageButton:
     # метод отображения кнопки
         
     def draw(self, screen):
+        """Вывод кнопок на экран"""
         if self.is_active:              # Если на кнопку навелся пользователь, то она увеличивается  
 
             current_image = self.hover_image if self.is_hovered else self.image
             if current_image == self.hover_image:
                     
-                    # Такая же операция, как и в 29 строчке: Если навелся на кнопку, то она увеличивается,а если не прописано, что она должна увеличиваться, то не увеличивается
+                    # Такая же операция: Если навелся на кнопку, то она увеличивается,а если не прописано, что она должна увеличиваться, то не увеличивается
 
                     if self.resize_when_hovered:
                         screen.blit(current_image, (self.rect.x - 5, self.rect.y + 5))
@@ -66,7 +66,6 @@ class ImageButton:
                 
             else:
                 screen.blit(current_image, self.rect.topleft)
-                  # Если на кнопку навелся пользователь, то она увеличивается
 
 
     # текст
@@ -86,7 +85,8 @@ class ImageButton:
                 text_rect.x -= 7
 
             else:
-                                                # Размер текста, если на кнопку не наводится пользователь
+                
+                 # Размер текста, если на кнопку не наводится пользователь
 
                 Font = pygame.font.Font(None, 32)
                 text_surface = Font.render(self.text, True, (255, 255, 255))
@@ -116,4 +116,3 @@ class ImageButton:
 
     def set_active(self, is_active):
         self.is_active = is_active
-                
